@@ -8,9 +8,8 @@ require "ContactoComun.pm";
 
 sub mainPrincipal{
 
-	print "\n\n\n****Bienvenido al sistema****";
 	
-	print("\n\n [Agregando contacto]\n\n");
+
 	agregarContactoEmpresarial("Carla Vargas",88885798,"www.tec.com","carlaVargas.ac.cr","San Carlos"); 
 	agregarContactoEmpresarial("Karol Rosales",950620,"www.utn.com","KarolRosales.ac.cr","Zarcero"); 
 	agregarContactoEmpresarial("Mario Gonzalez",7820093,"www.sancarlos.com","MarioG.ac.cr","Fortuna");
@@ -18,15 +17,7 @@ sub mainPrincipal{
 	agregarContactoComun("Yerlin Gomez",88517896,890204); 
 	agregarContactoComun("Hector Cruz",88638947,885014750); 
 	agregarContactoComun("Oscar Viquez",8836520,9605200);
-	
-	imprimir();
-    
-	
-	print("\n\n [Lista Contactos Final]\n\n");
-	imprimir();
-	
-	eliminarPersonaNombre("Yerlin Gomez");
-	imprimir();
+
 }
 
 
@@ -77,6 +68,34 @@ sub eliminarPersonaNombre{
 	}
 }
 
+#List all of the contacts, sin importar que tipo sea
+sub listMyContacts{
+    my $id;
+    my $index = 0;
+    for my $i (@directorio){
+        $index = ++$index;
+		if($i->isa('ContactoComun')){
+            print "#)$index \n";
+			print "Nombre: ",$i->{_nombre},"\n";
+			print "Telefono: ",$i->{_telefono},"\n";
+			print("\n\n");
+		}else{
+            print "#) $index";
+			print "Nombre: ",$i->{_nombre},"\n";
+			print "Telefono: ",$i->{_telefono},"\n";
+			if(defined $i->{_telefono2}){
+				print "Telefono 2: ",$i->{_telefono2},"\n";
+			}
+			print "Direccion Web:",$i->{_direccionPagina},"\n";
+			print "Correo electronico: ",$i->{_correoElectronico},"\n";
+			print "Ubicacion: ",$i->{_ubicacion},"\n";
+			print("\n\n");
+		}
+	}
+    return $index;
+
+}
+
 #agregar a la lista
 sub agregarContactoEmpresarial{
 	my $nombre = shift;
@@ -103,3 +122,5 @@ sub agregarElementoInicio{
 
 
 &mainPrincipal(); #llamar el metodo principal de la clase
+
+listMyContacts();
