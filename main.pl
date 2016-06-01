@@ -8,8 +8,72 @@ require "ContactoComun.pm";
 
 sub mainPrincipal{
 
+<<<<<<< HEAD
 	
 
+=======
+	print "\n\n\n****Bienvenido al sistema Agenda Contactos Perl****";
+    $opcion = 0;
+    do{
+    print "\n Que desea realizar: ";
+    print "\n\t1) Agregar Contacto.";
+    print "\n\t2) Actualizar Contacto.";
+    print "\n\t3) Eliminar Contacto.";
+    print "\n\t4) Ver mis Contactos.";
+    print "\n\n-----------------------\nAccion: ";
+	$opcion = <STDIN>;
+
+        if ($opcion == 1) {
+            print "\nOpciones de Contacto: \n";
+            print "\t1)Contacto Comun.";
+            print "\n\t1)Contacto Empresarial.";
+            print "\nQue tipo de contacto desea agregar: ";
+            $val = <STDIN>;
+            given($val){
+                when(1){
+                    print "Ingrese el nombre del Contacto: ";
+                    $nombre = <STDIN>;
+                     print "Ingrese numero de telefono 1: ";
+                    $telefono1 = <STDIN>;
+                     print "Ingrese numero de telefono 2: ";
+                    $telefono2 = <STDIN>;
+                    agregarContactoComun($nombre,$telefono1,$telefono2);
+                    print"\n\n\n\nAGREGADO CON EXITO!!!\n\n\n\n"
+
+                }
+                when(2){
+                    print "Ingrese el nombre del Contacto: ";
+                    $nombre = <STDIN>;
+                     print "Ingrese numero de telefono: ";
+                    $telefono1 = <STDIN>;
+                    print "Ingrese correo dominio: ";
+                    $dominio = <STDIN>;
+                     print "Ingrese correo electronico: ";
+                    $email = <STDIN>;
+                    print "Ingrese ubicacion de contacto: ";
+                    $ubicacion = <STDIN>;
+                    agregarContactoEmpresarial($nombre,$telefono1,$telefono2);
+                    print"\n\n\n\nAGREGADO CON EXITO!!!\n\n\n\n";
+                }
+                default {
+                print "Holy molly guacamole! error";
+                }
+            }
+        }elsif ($opcion cmp 2){
+        print "chango";
+        }elsif ($opcion cmp 3){
+        print "chango";
+        }elsif ($opcion cmp 4){
+        print "chango";
+        }elsif ($opcion cmp 5){
+        print "chango";
+        }else{
+            print "Error!. Opcion no valida"
+        }
+
+    }while($opcion != 1);
+
+>>>>>>> origin/master
 	agregarContactoEmpresarial("Carla Vargas",88885798,"www.tec.com","carlaVargas.ac.cr","San Carlos"); 
 	agregarContactoEmpresarial("Karol Rosales",950620,"www.utn.com","KarolRosales.ac.cr","Zarcero"); 
 	agregarContactoEmpresarial("Mario Gonzalez",7820093,"www.sancarlos.com","MarioG.ac.cr","Fortuna");
@@ -17,7 +81,11 @@ sub mainPrincipal{
 	agregarContactoComun("Yerlin Gomez",88517896,890204); 
 	agregarContactoComun("Hector Cruz",88638947,885014750); 
 	agregarContactoComun("Oscar Viquez",8836520,9605200);
+<<<<<<< HEAD
 
+=======
+
+>>>>>>> origin/master
 }
 
 
