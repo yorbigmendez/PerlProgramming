@@ -151,14 +151,22 @@ sub listMyContacts{
     return $index;
 
 }
+
+
 #uso de actualizar info
 sub actualizarInfo{
     print "chango";
 }
 
 sub agregarContactoComun{
-	print "chango";
+	my $nombre = shift;
+	my $telefono = shift;
+	my $telefono2 = shift;
+	my $ObjContacto = new ContactoComun($nombre, $telefono,$telefono2);
+	push(@directorio, $ObjContacto);
+	#print "\n\n Contacto Agregado, direcctorio Actualizado: ", @directorio;
 }
+
 #agregar a la lista
 sub agregarContactoEmpresarial{
 	my $nombre = shift;
